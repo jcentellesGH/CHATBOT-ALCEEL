@@ -1,12 +1,14 @@
 export const metadata = {
-  title: "ALCEEL · Assistent",
-  description: "Chatbot ALCEEL",
+  title: "ALCEEL Chatbot",
+  description: "Chatbot ALCEEL amb OpenAI",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ca">
-      <body style={{ margin: 0 }}>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }
