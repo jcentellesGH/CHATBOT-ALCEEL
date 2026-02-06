@@ -49,7 +49,15 @@ export default function Page() {
               color: m.role === "user" ? "#fff" : "#111",
               border: m.role === "user" ? "none" : "1px solid #eee"
             }}>
-              {m.content}
+             <span
+  dangerouslySetInnerHTML={{
+    __html: m.content.replace(
+      /(https?:\/\/[^\s]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#1a73e8;text-decoration:underline">$1</a>'
+    ),
+  }}
+/>
+
             </div>
           </div>
         ))}
