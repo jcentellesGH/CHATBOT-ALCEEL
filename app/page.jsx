@@ -34,10 +34,6 @@ export default function Page() {
 
   return (
     <div style={{ height: "100vh", display: "flex", flexDirection: "column", fontFamily: "system-ui" }}>
-      <div style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 700 }}>
-        ALCEEL · Assistent
-      </div>
-
       <div style={{ flex: 1, overflow: "auto", padding: 12, background: "#fafafa" }}>
         {messages.map((m, i) => (
           <div key={i} style={{ marginBottom: 10, display: "flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start" }}>
