@@ -1,6 +1,28 @@
 "use client";
 import { useState } from "react";
 
+function MessageContent({ content }) {
+  const parts = content.split(/(https?:\/\/[^\s]+)/g);
+
+  return parts.map((part, index) => {
+    if (/^https?:\/\/[^\s]+$/.test(part)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#1a73e8", textDecoration: "underline" }}
+        >
+          {part}
+        </a>
+      );
+    }
+
+    return <span key={index}>{part}</span>;
+  });
+}
+
 export default function Page() {
   const [messages, setMessages] = useState([
     { role: "assistant", content: "Hola! Sóc l’assistent d’ALCEEL. En què et puc ajudar?" }
@@ -45,14 +67,7 @@ export default function Page() {
               color: m.role === "user" ? "#fff" : "#111",
               border: m.role === "user" ? "none" : "1px solid #eee"
             }}>
-             <span
-  dangerouslySetInnerHTML={{
-    __html: m.content.replace(
-      /(https?:\/\/[^\s]+)/g,
-      '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#1a73e8;text-decoration:underline">$1</a>'
-    ),
-  }}
-/>
+              <MessageContent content={m.content} />
             </div>
           </div>
         ))}
