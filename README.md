@@ -1,5 +1,5 @@
 # CHATBOT-ALCEEL
-Chatbot ALCEEL amb OpenAI Agent Builder
+Chatbot ALCEEL amb la Responses API d'OpenAI, desplegat a Vercel.
 
 ## Configuració
 Aquest projecte utilitza l'API d'OpenAI.
