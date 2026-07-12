@@ -1,10 +1,10 @@
 import OpenAI from "openai";
 
 export const runtime = "nodejs";
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function POST(req) {
   try {
+    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const { messages } = await req.json();
 
     const system = {
@@ -94,4 +94,3 @@ Regles del link (molt important):
     return Response.json({ error: String(e) }, { status: 500 });
   }
 }
-
